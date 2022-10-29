@@ -1,11 +1,14 @@
-import express from 'express';
-const app = express();
-const port = 3000;
+import {Client} from 'twitter-api-sdk'
+import dotenv from 'dotenv'
 
-app.get('/', (req, res) => {
-	res.send('Hello World!');
-});
+dotenv.config()
 
-app.listen(port, () => {
-	console.log(`Express is listening at http://localhost:${port}`);
-});
+const client = new Client(process.env.BEARER_TOKEN);
+
+const main = async () => {
+	const tweet = await client.tweets.findTweetById("1585523669630976002");
+	console.log(tweet.data);
+}
+
+main()
+
