@@ -1,6 +1,9 @@
 name: Update twitter banner
 
 on:
+  push:
+   branches:
+      - 'develop'
   schedule:
     - cron: "0 0 * * *"
 
