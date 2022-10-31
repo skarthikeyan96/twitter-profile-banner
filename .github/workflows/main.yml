@@ -1,16 +1,22 @@
-name: Update twitter banner
-
 on:
   schedule:
     - cron: "0 0 * * *"
 
+# add env 
+env:
+  CONSUMER_API_KEY: ${{secrets.CONSUMER_API_KEY}} # <--- here
+  CONSUMER_API_SECRET: ${{secrets.CONSUMER_API_SECRET}}
+  ACCESS_TOKEN: ${{secrets.ACCESS_TOKEN}}
+  ACCESS_TOKEN_SECRET: ${{secrets.ACCESS_TOKEN_SECRET}}
+  
 jobs:
-  scheduled-job:
+  update-twitter-banner:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: "16"
+
       - run: npm install
       - run: npm run start
