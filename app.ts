@@ -21,7 +21,7 @@ const fetchRandomQuote = () => {
 		encoding: "utf-8"
 	}))
 	const randomQuote = quotes[getRandomInt(quotes.length)].text
-	return randomQuote.length <= 70 ? randomQuote : "You carry the passport to your own happiness."
+	return randomQuote.length <= 80 ? randomQuote : "You carry the passport to your own happiness."
 }
 
 
